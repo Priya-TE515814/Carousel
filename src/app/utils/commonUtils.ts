@@ -10,6 +10,10 @@ export class CommonUtils implements OnInit {
 
     }
 
+    isSafari(){
+        return !!window.navigator.userAgent.match(/Version\/[\d\.]+.*Safari/);
+    }
+
     getCountry(array: any, id: any) {
         let obj = array.filter(function (val: any) {
             var isoCode = val.id ? val.id : (val.code ? val.code : val.iso);

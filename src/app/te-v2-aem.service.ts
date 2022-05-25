@@ -970,7 +970,9 @@ export class TeV2AemService {
       settings: this.settings,
       urls: this.urls,
       store: this.store,
-      cmsSettings: this.cmsSettings
+      cmsSettings: this.cmsSettings,
+      localization: this.localization,
+      commerceSettings: this.commerceSettings
     }
     this.windowObj = { ...window };
   }

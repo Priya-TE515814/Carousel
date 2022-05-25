@@ -1,7 +1,6 @@
-import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CarouselModule } from './carousel/carousel.module';
@@ -11,10 +10,11 @@ import { CommerceUtils } from './utils/commerceUtils';
 import { ScreenService } from './utils/screen.service';
 import { SettingsHelperService } from './utils/setting-helper.service';
 import { TruncationService } from './utils/truncation.service';
+import { Location } from '@angular/common';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -23,6 +23,7 @@ import { TruncationService } from './utils/truncation.service';
     HttpClientModule
   ],
   providers: [
+    Location,
     LoggerService,
     TeV2AemService,
     CommerceUtils,

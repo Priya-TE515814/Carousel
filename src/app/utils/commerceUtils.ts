@@ -234,4 +234,8 @@ export class CommerceUtils implements OnInit {
         j = (i.length) > 3 ? i.length % 3 : 0;
         return (j ? i.substr(0, j) + thousand : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + thousand) + (places ? decimal + Math.abs(value - parseInt(i)).toFixed(places).slice(2) : "");
     }
+
+    removeCartCookie(){
+        $.removeCookie('cart-'+this.getStoreId(''), {path: '/'});
+    }
 }

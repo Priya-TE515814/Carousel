@@ -128,8 +128,10 @@ export class CarouselfeedComponent implements OnInit {
             prevArrow: '<span  class="cab-navigation cab-prev"><i class="fas fa-angle-left"></i></span>',
             nextArrow: '<span  class="cab-navigation cab-next"><i class="fas fa-angle-right"></i></span>'
         };
+        let $jq = $.noConflict();
     if(merchandisingModuleEle.closest(".campaign-landing-eloqua-content-wrapper").length > 0){
-        $.extend(slickObj, {
+       
+       $jq.extend(slickObj, {
             slidesToShow: 3,
             responsive: [{
                 breakpoint: 719,
@@ -149,7 +151,7 @@ export class CarouselfeedComponent implements OnInit {
         });
     }
     else if(this.screen.getState().isResponsivePage && this.screen.getState().isWideScreenSupportedPage){
-        $.extend(slickObj, {
+        $jq.extend(slickObj, {
             slidesToShow: 5,
             responsive: [{
                 breakpoint: 719,
@@ -169,7 +171,7 @@ export class CarouselfeedComponent implements OnInit {
         });
     }
     else if(this.screen.getState().isResponsivePage){
-        $.extend(slickObj, {
+        $jq.extend(slickObj, {
             responsive: [{
                 breakpoint: 719,
                 settings: {

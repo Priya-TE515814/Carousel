@@ -417,7 +417,7 @@ b{
         content: "";
         display: block;
         position: absolute;
-        .te-sprite(@document-flap-white);
+        //.te-sprite(@document-flap-white);
         background-color: @background-color;
         right: -1px;
         top: -1px;
@@ -426,9 +426,9 @@ b{
 
 //this is a proxy to the generated sprite.
 //in case we need to change how our sprites are done.
-.te-sprite(@sprite){
-    .sprite(@sprite);
-}
+// .te-sprite(@sprite){
+//     .sprite(@sprite);
+// }
 
 .white-loader(@min-height, @background-pos, @position, @background-color, @margin-top){
     z-index: @z-loader;
@@ -436,7 +436,7 @@ b{
     html.oldie &{
         height: @min-height;
     }
-    background: @background-color url('@{image-path-long}/loading-anim.gif') no-repeat @background-pos;
+    //background: @background-color url('@{image-path-long}/loading-anim.gif') no-repeat @background-pos;
     position: @position;
     margin-top: @margin-top;
 }
@@ -764,7 +764,7 @@ b{
 
 /* Label tags */
 .tag-icon(@background-image: ~''){
-    background: url('@{image-path}/tags/@{background-image}.png') left top no-repeat;
+    //background: url('@{image-path}/tags/@{background-image}.png') left top no-repeat;
     height:21px;
     //text-indent: -9999px;
     float: left;
@@ -800,7 +800,7 @@ b{
     min-width: 74px;
 }
 .price-tag {
-    background: url('@{image-path}/tags/te_pricing_tag.png') 0 0 no-repeat;
+    // background: url('@{image-path}/tags/te_pricing_tag.png') 0 0 no-repeat;
     width: 53px;
     height: 15px;
     display: inline-block;
@@ -816,7 +816,7 @@ b{
 }
 
 .buyontecom-tag {
-    background: url('@{image-path-long}/tags/orderable-indicator.png') 0 0 no-repeat;
+    // background: url('@{image-path-long}/tags/orderable-indicator.png') 0 0 no-repeat;
     width: auto;
     height: 21px;
     margin: 0;
@@ -1124,7 +1124,7 @@ b{
             z-index: 15;
             height: 100%;
             min-height: 50px;
-            background:@te-white url('@{image-path-long}/loading-anim.gif') 50% 50% no-repeat;
+            //background:@te-white url('@{image-path-long}/loading-anim.gif') 50% 50% no-repeat;
             background-size: contain;
             width: 100%;
             content: "";
@@ -1147,7 +1147,7 @@ b{
             z-index: 100;
             height: 100vh;
             width: 100vw;
-            background:@te-white url('@{image-path-long}/loading-anim.gif') 50% 50% no-repeat;
+            //background:@te-white url('@{image-path-long}/loading-anim.gif') 50% 50% no-repeat;
             content: "";
             position: fixed;
             display: block;
@@ -1219,7 +1219,7 @@ b{
     }
     );
     .buyontecom-tag {
-        background: url('@{image-path-long}/tags/orderable-indicator.png') 0 0 no-repeat;
+        //background: url('@{image-path-long}/tags/orderable-indicator.png') 0 0 no-repeat;
         width: auto;
         height: 20px;
         margin: 0px; //text-indent: -9999px;

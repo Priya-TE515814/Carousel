@@ -16,10 +16,11 @@ export class TruncationService {
   }
 
   expand($el: any) {
+    let $jq = (window as any)['jQuery'].noConflict();
     if ($el && $el.length > 0) {
       $el.find(".truncate").dotdotdot();
     } else {
-      ($(".truncate") as any).dotdotdot();
+      ($jq(".truncate") as any).dotdotdot();
     }
   }
 

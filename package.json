@@ -29,7 +29,9 @@
     "jquery": "^3.6.0",
     "jquery-throttle-debounce": "^1.0.0",
     "jquery.dotdotdot": "^3.2.3",
+    "ngx-slick-carousel": "^0.6.0",
     "rxjs": "~7.5.0",
+    "slick-carousel": "^1.8.1",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {

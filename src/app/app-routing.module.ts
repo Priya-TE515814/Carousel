@@ -4,7 +4,7 @@ import {CarouselfeedComponent } from '../app/carousel/carouselfeed/carouselfeed.
 
 const routes: Routes = [
   {path:'carousel',
-   component:CarouselfeedComponent},
+   loadChildren: () => import('./carousel/carousel.module').then(m => m.CarouselModule)},
    { 
     path: 'add-to-cart-modal', 
     loadChildren: () => import(`./add-to-cart-modal/add-to-cart-modal.module`).then(

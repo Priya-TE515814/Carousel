@@ -11,6 +11,8 @@ import { ScreenService } from './utils/screen.service';
 import { SettingsHelperService } from './utils/setting-helper.service';
 import { TruncationService } from './utils/truncation.service';
 import { Location } from '@angular/common';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { Location } from '@angular/common';
     BrowserModule,
     AppRoutingModule,
     CarouselModule,
-    HttpClientModule
+    HttpClientModule,
+    SlickCarouselModule
   ],
   providers: [
     Location,

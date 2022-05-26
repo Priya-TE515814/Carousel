@@ -55,6 +55,8 @@ export class CarouselfeedComponent implements OnInit {
   {
     this.isLoading = true;
     this.country = '';
+
+    $ = (window as any)['jQuery'];
   }
 
   ngOnInit(): void {
@@ -101,12 +103,13 @@ export class CarouselfeedComponent implements OnInit {
     // Ability to carry the discrete number of products from carousel to MDP
     this.mdpParameters = this.inStockOnly !== '' ? '?instock=store' : '';
 
+    let carouselWrapper = $('.merchandising-carousel-container.feed .wrapper');
     setTimeout(() => {
 
       this.buildCarousel();
       this.isLoading = false;
-      $('.merchandising-carousel-container.feed .wrapper').removeClass('loading');
-    });
+      carouselWrapper.removeClass('loading');
+    }, 1500);
 
     // if(this._teService.cmsSettings.defaultEnvironment !== 'LOCAL' && _satellite && _satellite.track) {
     //     _satellite.track('merchandising-carousel-feed');
@@ -116,7 +119,8 @@ export class CarouselfeedComponent implements OnInit {
   resultLoadError() { }
 
   buildCarousel() {
-    var merchandisingModuleEle = $(".fp-cab-list-wrapper", Element);
+    let $jq = $.noConflict();
+    var merchandisingModuleEle = $jq(".fp-cab-list-wrapper", Element);
     var slickObj = {
             dots: false,
             arrows: true,
@@ -128,7 +132,7 @@ export class CarouselfeedComponent implements OnInit {
             prevArrow: '<span  class="cab-navigation cab-prev"><i class="fas fa-angle-left"></i></span>',
             nextArrow: '<span  class="cab-navigation cab-next"><i class="fas fa-angle-right"></i></span>'
         };
-        let $jq = $.noConflict();
+        
     if(merchandisingModuleEle.closest(".campaign-landing-eloqua-content-wrapper").length > 0){
        
        $jq.extend(slickObj, {

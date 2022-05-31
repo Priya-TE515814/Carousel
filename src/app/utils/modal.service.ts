@@ -51,11 +51,11 @@ export class ModalService {
             options.modalBgClass = "";
         }
 
-        if (options.iconClass) {
-            options.closeBtnSize = "";
-        } else {
-            options.iconClass = "icon icon-close";  //default modal close icon
-        }
+        // if (options.iconClass) {
+        //     options.closeBtnSize = "";
+        // } else {
+        //     options.iconClass = "icon icon-close";  //default modal close icon
+        // }
 
         this.instanceOptions = $.extend(this.defaults, options || {});
 
@@ -64,9 +64,10 @@ export class ModalService {
         if (this.$modalBg.length === 0) {
             this.injectTemplate();
             this.$modalBg = $('#modal-bg');
-        } else {
-            this.$modalBg.find(".modal-close i").removeClass().addClass(this.instanceOptions.iconClass + ' ' + this.instanceOptions.closeBtnSize);
-        }
+        } 
+        // else {
+        //     this.$modalBg.find(".modal-close i").removeClass().addClass(this.instanceOptions.iconClass + ' ' + this.instanceOptions.closeBtnSize);
+        // }
         this.$modalBg.removeClass().removeAttr("style").addClass(options.modalBgClass);
 
         this.$modalBody = this.$modalBg.find('#modal-body');
@@ -116,55 +117,55 @@ export class ModalService {
 
         if (this.$modalBg !== null) {
             //unbind listeners
-            this.$modalBg.attr('aria-hidden', true).off('click', this.onBgClicked);
-            this.$modalBg.find('.modal-close').off('click', this.closeModal);
-            this.$body.off('keydown', this.handleKeyPress);
-            this._screenService.removeResizeListener(this.screenResized);
-            this.$modalBody.off(this.EVENTS.HEIGHT_CHANGED);
-            this.$modalContent.off('load');
+            // this.$modalBg.attr('aria-hidden', true).off('click', this.onBgClicked);
+            // this.$modalBg.find('.modal-close').off('click', this.closeModal);
+            // this.$body.off('keydown', this.handleKeyPress);
+            //this._screenService.removeResizeListener(this.screenResized);
+            //this.$modalBody.off(this.EVENTS.HEIGHT_CHANGED);
+            //this.$modalContent.off('load');
 
             $(window.document).off('focus', this.focusRestrict);
 
-            if (this.instanceOptions.$srcElm) {
-                $(this.instanceOptions.$srcElm).focus();
-            }
+            // if (this.instanceOptions.$srcElm) {
+            //     $(this.instanceOptions.$srcElm).focus();
+            // }
 
             //we want to animate out:
-            this.$body.removeClass('open-modal');
+            $(document.body).removeClass('open-modal');
+            
+            // this.$modalBg.removeClass('scrollable');
 
-            this.$modalBg.removeClass('scrollable');
-
-            if (this.instanceOptions.closeCallback) {
-                this.instanceOptions.closeCallback();
-            }
+            // if (this.instanceOptions.closeCallback) {
+            //     this.instanceOptions.closeCallback();
+            // }
 
             //need to remove instance because the need to update modal visual per modal request
-            this.$modalBg.remove();
-            this.$modalBg = null;
+            // this.$modalBg.remove();
+            // this.$modalBg = null;
         } else {
-            $(window.document).off('focus', this.focusRestrict);
-            this.$body.removeClass('open-modal');
-            $('#modal-bg').removeClass('scrollable');
-            $('#modal-bg').remove();
+            // $(window.document).off('focus', this.focusRestrict);
+            // this.$body.removeClass('open-modal');
+            // $('#modal-bg').removeClass('scrollable');
+            // $('#modal-bg').remove();
         }
 
-        if ($('body').hasClass('body-modal-open')) {
-            $('body').removeClass('body-modal-open');
-        }
-        if ($('body').hasClass('body-modal-open-live-chat')) {
-            $('body').removeClass('body-modal-open-live-chat');
-        }
+        // if ($('body').hasClass('body-modal-open')) {
+        //     $('body').removeClass('body-modal-open');
+        // }
+        // if ($('body').hasClass('body-modal-open-live-chat')) {
+        //     $('body').removeClass('body-modal-open-live-chat');
+        // }
 
-        if ($('body').hasClass('payment-address-modal')) {
-            $('body').removeClass('payment-address-modal');
-            $(window).off('resize');
-        }
-        if ($('body').hasClass('BrightCoveVideo')) {
-            $('body').removeClass('BrightCoveVideo');
+        // if ($('body').hasClass('payment-address-modal')) {
+        //     $('body').removeClass('payment-address-modal');
+        //     $(window).off('resize');
+        // }
+        // if ($('body').hasClass('BrightCoveVideo')) {
+        //     $('body').removeClass('BrightCoveVideo');
             /* jshint ignore:start */
             //videojs("te-brightcove-trigger-video").dispose();
             /* jshint ignore:end */
-        }
+        // }
     }
 
     onBgClicked($evt: any) {
@@ -253,7 +254,7 @@ export class ModalService {
         var template = '<div id="modal-bg" tabindex="-1">' +
             '<div id="modal-body" role="dialog">' +
             '<h5 id="modal-title" class="mobile"></h5>' +
-            '<a href="#" aria-label="close" class="modal-close btn-block-6 btn-clr-7 ' + this.instanceOptions.closeBtnAlignment + '"><i class="' + this.instanceOptions.iconClass + ' ' + this.instanceOptions.closeBtnSize + '" role="presentation"></i>back</a>' +
+            '<a href="#" aria-label="close" class="modal-close btn-block-6 btn-clr-7 ' + this.instanceOptions.closeBtnAlignment + '"> <i class="fas fa-times" role="presentation"></i>back</a>' +
             '<div id="modal-content"></div>' +
             '</div>' +
             '</div>';

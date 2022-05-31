@@ -17,8 +17,8 @@ export class TeModalService {
 
     constructor(private _modalService: ModalService) { }
     
-    close() {
-        this._modalService.closeModal('');
+    close(event: any) {
+        this._modalService.closeModal(event);
     }
 
     create(htmlContent: any, options: any, extraScopeVars: any) {

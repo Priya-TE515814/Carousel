@@ -43,7 +43,7 @@ export class AddToCartModalComponent implements OnInit {
                                   <div class="product-image">
                                       <div class="imgdiv">
                                       <a href="https://www.te.com/usa-en/product-2108964-1.html">
-                                                <img alt="Stamped Antenna,SMD,Wi-Fi,2.4+5GHz-2108964-1" ng-src="/content/dam/te-com/catalog/part/021/089/641/2108964-1-t1.jpg/jcr:content/renditions/product-small.png" loading="lazy" src="/content/dam/te-com/catalog/part/021/089/641/2108964-1-t1.jpg/jcr:content/renditions/product-small.png">
+                                                <img loading="lazy" src="/content/dam/te-com/catalog/part/021/089/641/2108964-1-t1.jpg/jcr:content/renditions/product-small.png">
                                             </a>
                                       </div>
                                   </div>
@@ -147,7 +147,7 @@ export class AddToCartModalComponent implements OnInit {
                           <div ng-if="!isCartPage" class="added-to-cart-continue-checkout ng-scope">
                                 <a href="https://www.te.com/usa-en/commerce/shop/shopping-cart.html" class="add-to-cart-cta checkout-button ng-binding">View Cart</a>
                           </div>
-                          <div data-ng-click="closeAddToCart()" class="btnCartContinueShop ng-binding">CONTINUE SHOPPING</div>
+                          <div data-ng-click="closeAddToCartModal()" class="btnCartContinueShop ng-binding">CONTINUE SHOPPING</div>
                       </div>
                   </div>
               </div>
@@ -204,7 +204,7 @@ export class AddToCartModalComponent implements OnInit {
                                                         </div>
                                                         <!-- ngIf: product.storeInfo.inStock == 'true' --><div class="cab-buyNow ng-scope" data-ng-if="product.storeInfo.inStock == 'true'">
                                                             <a href="https://www.te.com/usa-en/product-2118712-2.html" data-tn-add-moq-to-cart="" data-moq="-1" data-tn-add-to-cart-modal="" data-modal-cart="true" data-img-src="/content/dam/te-com/catalog/part/021/187/122/2118712-2-t1.jpg/jcr:content/renditions/product-details.png" data-tcpn="2118712-2" class="btn-block-1 btn-clr-1 buy-now ng-scope ng-binding" data-dtm-click="compatible-products-modal-add" data-comptm="true" data-desc="1 PC STD SHIELD, CRS-44.37X44.37X9.75MM" data-marketing-part="2118712-2">
-                                                                <i class="icon icon-cart icon-small" role="presentation"></i>Add To Cart
+                                                            <i class="fas fa-shopping-cart" role="presentation"></i>Add To Cart
                                                             </a>
                                                         </div><!-- end ngIf: product.storeInfo.inStock == 'true' -->
                                                         <!-- ngIf: product.storeInfo.inStock == 'false' -->
@@ -235,7 +235,7 @@ export class AddToCartModalComponent implements OnInit {
                                                         </div>
                                                         <!-- ngIf: product.storeInfo.inStock == 'true' --><div class="cab-buyNow ng-scope" data-ng-if="product.storeInfo.inStock == 'true'">
                                                             <a href="https://www.te.com/usa-en/product-2118708-4.html" data-tn-add-moq-to-cart="" data-moq="-1" data-tn-add-to-cart-modal="" data-modal-cart="true" data-img-src="/content/dam/te-com/catalog/part/021/187/084/2118708-4-t1.jpg/jcr:content/renditions/product-details.png" data-tcpn="2118708-4" class="btn-block-1 btn-clr-1 buy-now ng-scope ng-binding" data-dtm-click="compatible-products-modal-add" data-comptm="true" data-desc="1 PC STD SHIELD, AL-26.21X26.21X5.08MM" data-marketing-part="2118708-4">
-                                                                <i class="icon icon-cart icon-small" role="presentation"></i>Add To Cart
+                                                                <i class="fas fa-shopping-cart" role="presentation"></i>Add To Cart
                                                             </a>
                                                         </div><!-- end ngIf: product.storeInfo.inStock == 'true' -->
                                                         <!-- ngIf: product.storeInfo.inStock == 'false' -->
@@ -329,7 +329,7 @@ export class AddToCartModalComponent implements OnInit {
                             <a href="https://www.te.com/usa-en/commerce/shop/shopping-cart.html" class="add-to-cart-cta checkout-button ng-binding">View Cart</a>
                         </div><!-- end ngIf: !isCartPage -->
                         <!-- ngIf: isCartPage -->
-                        <div data-ng-click="closeAddToCart()" class="btnCartContinueShop ng-binding">CONTINUE SHOPPING</div>
+                        <div data-ng-click="closeAddToCartModal($event)" class="btnCartContinueShop ng-binding">CONTINUE SHOPPING</div>
                     </div>
                 </div>
             </div>
@@ -357,7 +357,7 @@ export class AddToCartModalComponent implements OnInit {
 
     closeAddToCartModal() {
         this._logger.info('CLOSE_ATC_MODAL Listened');
-        this._teModalService.close();
+        this._teModalService.close(event);
     }
 
     initiateAddToCartModal(e: any) {
@@ -366,7 +366,7 @@ export class AddToCartModalComponent implements OnInit {
         // var closeModal = $.element.attr('data-comptm') === 'true' ? true : false;
         // if (closeModal) {
         //   this._teService.getTeV2Array().ns('digitalData').addCompatibleFromModal = true;
-        this._teModalService.close();
+        this._teModalService.close(event);
         // }
         // double timeout is added to allow some time for modal and its dependencies to load
         // first timeout is for modal

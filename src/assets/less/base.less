@@ -248,7 +248,10 @@ h4 {
         content: "\e617";
     }
     &.icon-close:before {
-        content: "\e618";
+        content: "\e59b";
+    }
+    &.fa-solid:before {
+        content: "\e59b";
     }
     &.icon-caret:before {
         content: "\e619";
@@ -414,6 +417,20 @@ h4 {
         color: @te-blue;
     }
 }
+
+.fas[role="presentation"] { 
+    font-weight: 900;
+    font-size: 15px;
+    color: white;
+    
+    &.fa-times:before {
+        content: "\f00d";
+    }
+    &.fa-shopping-cart:before {
+        content: "\f07a";
+    }
+}
+
 
 // Hover behavior for edit-box
 .edit-mode-on {
